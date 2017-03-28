@@ -1,0 +1,265 @@
+body {
+	color:#a21e1e;
+	background-color:#f3f2f0;
+}
+
+.slider {
+	
+	background-color:lightgreen;	
+    height:250px;
+    width:780px;
+    overflow:hidden;
+	margin-left:-20px;
+	margin-bottom:100px;
+
+}
+
+.slider ul {
+	
+	list-style:none;
+	width:2000px;
+	margin:0;padding:0;
+
+}
+
+.slider li {
+	float:left;
+	
+}
+
+.Bouge {
+	margin-left:-500px;
+	
+}
+
+.Police2 {
+	color:#a21e1e;
+	font-size:14px;
+}
+
+.Feech img {
+	width:300px;
+	height:400px;
+}
+
+.Feech
+{
+
+	text-align:center;
+	float:left;
+
+}
+
+.Feech:hover
+{
+transform:scale(1.1);
+-webkit-transform:scale(1.1);
+-moz-transform:scale(1.1);
+-ms-transform:scale(1.1);
+-o-transform:scale(1.1);
+
+-webkit-box-shadow: 0 58px 36px -56px black;
+-moz-box-shadow: 0 58px 36px -56px black;
+box-shadow: 0 58px 36px -56px black;
+}
+
+.Feech
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+}
+
+.Feech:hover
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+}
+
+.Feech2	{
+	
+	border-radius:10px;
+
+	text-align:center;
+	float:left;
+	overflow:;
+}
+
+.Feech2:hover
+{
+transform:scale(1.1);
+-webkit-transform:scale(1.1);
+-moz-transform:scale(1.1);
+-ms-transform:scale(1.1);
+-o-transform:scale(1.1);
+
+-webkit-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.63);
+-moz-box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.63);
+box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.63);
+border-radius:30px;
+overflow:hidden;
+}
+
+.Feech2
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+overflow:hidden;
+}
+
+.Feech2:hover
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+overflow:hidden;
+}
+
+
+.Feech3	{
+	
+	text-align:center;
+	float:left;
+}
+
+
+.Feech3
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+}
+
+.Feech3:hover
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+
+}
+
+.coord:hover
+{
+transform:scale(1.1);
+-webkit-transform:scale(1.1);
+-moz-transform:scale(1.1);
+-ms-transform:scale(1.1);
+-o-transform:scale(1.1);
+
+}
+
+.coord
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+}
+
+.coord:hover
+{
+transition:all .6s ease-in-out;
+-webkit-transition:all .6s ease-in-out;
+-moz-transition:all .6s ease-in-out;
+-ms-transition:all .6s ease-in-out;
+-o-transition:all .6s ease-in-out;
+
+}
+
+.coord  {
+	padding: 10px;
+	border: 2px solid grey;
+	border-radius: 10px;
+	list-style-type:none;
+	box-shadow: 2px 2px grey;
+}
+
+.Feech .Police {
+	font-size: 30px;
+	font-weight:bold;
+	color:#a21e1e;
+
+}
+
+.Feech2 .Police {
+	font-size: 30px;
+	font-weight:bold;
+	color:#a21e1e;
+
+}
+
+
+.Feech3 .Police {
+	font-size: 30px;
+	font-weight:bold;
+	color:#a21e1e;
+}
+
+.fa{
+	font-size: 35px;
+	margin-right: 15px;
+}
+
+#RSFaceB{
+	color: #4267b2;
+}
+
+#RSTwitter{
+	color: #1da1f2;
+}
+
+#RSLikedIn{
+	color: #0077b5;
+}
+
+#RSYouTube{
+	color: #cc181e;
+}
+
+.topLiens{
+	color: white;
+}
+
+.topLiens:hover{
+	color:white;
+	
+}
+
+div#navbar {
+    background-color: dimgray;
+    border: 2px solid black;
+    width: 100%;
+    height: 52px;
+    padding-top: 15px;
+    border-collapse: collapse;
+}
+
+#PL li{
+	display: inline-block;
+	margin-right: 50px;
+}
+
+header{
+	border-collapse: collapse;
+}
+
+footer{
+	border-top: solid black 2px;
+	margin-top: 20px;
+	padding-top: 10px;
+}

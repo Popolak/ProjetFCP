@@ -1,0 +1,259 @@
+body{
+	background-color: #f3f2f0;
+}
+
+.logo{
+	height: 70px;
+	width: auto;
+}
+
+.contact {
+	text-align: center;
+	color: #a21e1e;
+	padding-top: 100px;
+}
+
+.calendar{
+	display: inline-block;
+	border: 1px solid black;
+
+}
+
+.date1{
+	display: inline-block;
+}
+
+h3{
+	text-align: center;
+	color: #a21e1e;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	
+}
+
+ #civ{
+	margin-bottom: 5px; 
+	
+	width: 177.6px;
+	height: 25.2px;
+}
+.nom{
+	margin-bottom: 5px;
+}
+.prenom{
+	margin-bottom: 5px;
+}
+#date{
+	width: 177.6px;
+	height: 25.2px;
+}
+.cp{
+	margin-bottom: 5px;
+}
+.ville{
+	margin-bottom: 5px;
+}
+.tel{
+	margin-bottom: 5px;
+}
+.mail{
+	
+} 
+
+.p1{
+	display: inline-block;
+	
+}
+
+#p2{
+	
+	display: inline-block;
+}
+
+.p3{
+	display: block;
+}
+
+.p4 {
+	display: block;
+}
+.container{
+	border-bottom: 1px solid black;
+	padding-bottom: 50px;
+}
+
+.sit{
+	padding-bottom: 20px;
+	display: inline-block;
+}
+
+.fa{
+	font-size: 40px;
+	margin-right: 15px;
+}
+
+.form{
+	padding-top: 50px;
+}
+
+.dispo{
+	padding-top: 20px;
+}
+
+.dispo1{
+	margin-left: -50px;
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+
+#box1{
+	margin-bottom: 12px;
+}
+
+h4{
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+
+
+footer{
+	border-top: solid black 2px;
+	margin-top: 20px;
+	padding-top: 10px;
+}
+
+.navbar{
+	position: fixed;
+	background-color: #BFBEB8;
+	z-index: 999;
+	opacity: 0.95;
+	border-bottom: 1px solid black;
+}
+
+.container3{
+	background-color: #455CFF;
+	padding: 20px;
+}
+
+.comm{
+	height: 100px;
+	width: 500px;
+	display: inline-block;
+
+}
+
+.comm1{
+	display: inline-block;
+}
+
+.text{
+	height: 20px;
+	width: 33%;
+	overflow: hidden;
+	transition: all 1s;
+}
+
+.text2{
+	height: 20px;
+	width: 45%;
+	overflow: hidden;
+	transition: all 1s;
+}
+.animation{
+	height: 110px;
+	transition: all 1s;
+}
+
+.animation2{
+	height: 136px;
+	transition: all 1s;
+}
+
+#RSFaceB{
+	color: #4267b2;
+}
+
+#RSTwitter{
+	color: #1da1f2;
+}
+
+#RSLikedIn{
+	color: #0077b5;
+}
+
+#RSYouTube{
+	color: #cc181e;
+}
+
+.accueil{
+	color: #a21e1e; 
+	font-size: 25px;
+	padding: 12px 15px 15px 15px;
+	display: inline-block;
+	background-color: #d6d6c2;
+  	box-shadow: 0px 5px 0px 0px #b8b894;
+  	height:60px;
+  	margin-right:-200px;
+	
+}
+
+.accueil:hover{
+	color:#d72828;
+	background-color: #e1e1d0;
+  	box-shadow: 0px 5px 0px 0px #b8b894;
+
+}
+
+
+.cadre{
+	padding-bottom: 50px;
+}
+
+.bouton1 {
+
+	margin-top: 50px;
+}
+
+.btn {
+  border-radius: 5px;
+  font-size: 25px;
+  text-decoration: none;
+  margin:2px;
+  color: #a21e1e;
+  position: relative;
+  display: inline-block;
+
+}
+
+.btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.col-sm-offset-3 {
+	margin-left:330px;
+}
+
+#hautDePage{
+	padding-top: 100px;
+	width: 100%;
+}
+
+#tdCheckbox{
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+.row{
+	margin-left: 0px;
+}
+
+#ligneFormat{
+	margin: 0px;
+}
+
+#alignFormation{
+	margin-left: 120px;
+}
