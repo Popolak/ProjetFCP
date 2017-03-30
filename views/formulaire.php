@@ -16,7 +16,7 @@
 			<div class="col-sm-12 navbar">
 				<img class="col-sm-2 logo" src="./web/images/Imie.png"/>
 				<div class="col-sm-offset-3 col-sm-3">
-					<a class="accueil btn" href="">Retour à l'accueil</a>
+					<a class="accueil btn" href="./index.php">Retour à l'accueil</a>
 				</div>
 			</div>
 		</div>
@@ -82,8 +82,10 @@
 						</div>
 						<div class="col-sm-6">
 							<select id="civ" name="civ" size="1">
-								<option>Madame</option>
-								<option>Monsieur</option>
+								<option value="1">Monsieur</option>
+								<option value="2">Madame</option>
+								<option value="3">Mademoiselle</option>
+								
 							</select>
 						</div>
 					</div>
@@ -126,13 +128,13 @@
 							<p>Téléphone 1 *</p>
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="tel" placeholder="ex: 06 12 34 56 78..." name="tel1">
+							<input type="text" class="tel" placeholder="ex: 06 12 34 56 78..." name="tel1" value="">
 						</div>
 						<div class="col-sm-6">
 							<p>Téléphone 2</p>
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="tel" placeholder="ex: 06 12 34 56 78..." name="tel2">
+							<input type="text" class="tel" placeholder="ex: 06 12 34 56 78..." name="tel2" value="0">
 						</div>
 					</div>
 				</div>
@@ -154,13 +156,13 @@
 	<div class="row">
 		<div class="col-sm-12 sit">
 			<div class=" col-sm-3">
-				<input type="radio" class="déroule2">  EN FORMATION
+				<input type="radio" class="déroule2" value="3" name="situation">  EN FORMATION
 			</div>
 			<div class="col-sm-offset-2 col-sm-2">
-				<input id="salarié" type="radio" name="situation" value="2" checked class="deroule3">  SALARIE
+				<input id="salarié" type="radio" name="situation" value="1" checked class="deroule3">  SALARIE
 			</div>
 			<div class="col-sm-offset-2 col-sm-3">
-				<input id="emploi" type="radio" name="situation" value="3" class="deroule3">  DEMANDEUR D'EMPLOI
+				<input id="emploi" type="radio" name="situation" value="2" class="deroule3">  DEMANDEUR D'EMPLOI
 			</div>
 		</div>
 	</div>
@@ -173,7 +175,7 @@
 							<p>Si formation en cours, laquelle:</p>
 						</div>
 						<div class="col-sm-6">
-							<input type="text" name="situation">
+							<input type="text" name="">
 						</div>
 					</div>
 				</div>
@@ -208,18 +210,12 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<input id="box1" type="radio" name="dispo" value="immediate" onclick="cacherAutre();" checked="">  Immédiate
+							<p><input id="box1" type="radio" name="dispo" value="immediate" onclick="cacherAutre();" checked="">  Immédiate</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<input id="box1" type="radio" name="dispo" value="apresFormationActuelle" onclick="cacherAutre();">  Après la formation
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<input type="radio" name="dispo" value="autre" onclick="afficherAutre();">  Autre 
-							<input id="autre" type="text" name="autreSit" style="display: none;">
+							<p><input id="box1" type="radio" name="dispo" value="apresFormationActuelle" onclick="cacherAutre();">  Après l'activité actuelle</p>
 						</div>
 					</div>
 				</div>
@@ -232,35 +228,35 @@
 	
 	<div class="row">
 		<div class="col-sm-offset-2 col-sm-3">
-			<select id="choix1" name="choix1" size="1">
+			<select id="choix1" name="formation1" size="1">
 				<?php	foreach ($listeFormation as $formation) {	
-					$lib = $formation->getLibelle();	?>
-					<option value="<?php echo $lib; ?>"> 
-						<?php	echo ($formation->getLibelle());	?>
+						?>
+					<option value="<?php echo $formation->getId(); ?>"> 
+						<?php	echo $formation->getLibelle();	?>
 					</option>
 				<?php	}	?>
 			</select>
 		</div>
 
 		<div class="col-sm-3">
-			<select id="choix2" name="choix2" size="1">
+			<select id="choix2" name="formation2" size="1">
 			<option value="null"></option>
 				<?php	foreach ($listeFormation as $formation) {	?>
-					<?php	$lib = $formation->getLibelle();	?>
-					<option value="<?php echo $lib; ?>"> 
-						<?php	echo ($formation->getLibelle());	?>
+					
+					<option value="<?php echo $formation->getId(); ?>"> 
+						<?php	echo $formation->getLibelle();	?>
 					</option>
 				<?php	}	?>
 			</select>
 		</div>
 
 		<div class="col-sm-3">
-			<select id="choix3" name="choix3" size="1">
+			<select id="choix3" name="formation3" size="1">
 				<option value="null"></option>
 				<?php	foreach ($listeFormation as $formation) {	?>
-					<?php	$lib = $formation->getLibelle();	?>
-					<option value="<?php echo $lib; ?>"> 
-						<?php	echo ($formation->getLibelle());	?>
+					
+					<option value="<?php echo $formation->getId(); ?>"> 
+						<?php	echo $formation->getLibelle();	?>
 					</option>
 				<?php	}	?>
 			</select>
@@ -273,69 +269,30 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="col-sm-offset-3 col-sm-2">
-				<input type="radio" name="reorient" value="1" checked > Oui
+				<input type="radio" name="situation" value="1" checked > Oui
 			</div>
 			<div class="col-sm-offset-3 col-sm-2">
-				<input type="radio" name="reorient" value="0" > Non
+				<input type="radio" name="situation" value="2" > Non
 			</div>
 		</div>
 	</div>
-	<h3>#JE CONNAIS L'IMIE</h3>
-	<h4>Comment avez-vous entendu parler de l'IMIE ? *</h4>
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="col-sm-offset-2 col-sm-3">
-						<p><input type="checkbox" name="connaitreIMIE" value="radio">  RADIO</p>
-						<p><input type="checkbox" name="connaitreIMIE" value="web">  SITE INTERNET</p>
-						<p><input type="checkbox" name="connaitreIMIE" value="event">  EVENEMENT</p>
-				</div>
-				<div class="col-sm-3">
-					<p><input type="checkbox" name="connaitreIMIE" value="tract">  AFFICHAGE</p>
-					<p><input type="checkbox" name="connaitreIMIE" value="BaOE">  ENTREPRISE</p>
-					<p><input type="checkbox" name="connaitreIMIE" value="press">  PRESSE</p>
-				</div>
-				<div class="col-sm-3">
-					<p><input type="checkbox" name="connaitreIMIE" value="BaOS">  CIO/LYCEE</p>
-					<p><input type="checkbox" name="connaitreIMIE" value="parents">  PARENTS</p>
-					<p><input type="checkbox" name="connaitreIMIE" value="BaO">  AMIS/BOUCHE A OREILLE</p>
-				</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="col-sm-offset-1 col-sm-2">
+				<p class="comm1">Commentaires :</p>
+				<textarea class="comm" type="text" placeholder="Saisissez votre commentaire" name="infoIMIE"></textarea>
+			</div>
+			<div class="col-sm-offset-6 col-sm-2 bouton1">
+				<input type="submit" class="bouton" value="Envoyer ma candidature"/>
+				<br>
+				<label><?php if(isset($message)) echo $message ?></label>
+				<input type="hidden" name="action" value="insertContact"/>
 			</div>
 		</div>
-		<h3>#CADRE ADMINISTRATIF</h3>
-		<h4>Où avez-vous remplis cette candidature ?</h4>
-		<div class="row">
-			<div class="col-sm-offset-5 col-sm-5">
-				<p><input id="box1" type="radio" name="cadreAdm" value="salon" onclick="cacherAutre1();" checked="">  Salon</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-offset-5 col-sm-5">
-				<p><input id="box1" type="radio" name="cadreAdm" value="jpo" onclick="cacherAutre1();">  JPO (Journées Portes Ouvertes)</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-offset-5 col-sm-5">
-				<p><input type="radio" name="cadreAdm" value="autreCadre" onclick="afficherAutre1();">Autre 
-				<input id="autre1" type="text" style="display: none;"></p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="col-sm-offset-1 col-sm-2">
-					<p class="comm1">Commentaires :</p>
-					<textarea class="comm" type="text" placeholder="Saisissez votre commentaire" name="comm"/>	
-					</textarea>
-				</div>
-				<div class="col-sm-offset-6 col-sm-2 bouton1">
-					<input type="submit" class="bouton" value="Envoyer ma candidature"/>
-					<br>
-					<label><?php if(isset($message)) echo $message ?></label>
-					<input type="hidden" name="action" value="insertContact"/>
-				</div>
-			</div>
-		</div>
+	</div>
+</form>
 
-		<footer>
+	<footer>
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-4 col-sm-4 col-md-4">

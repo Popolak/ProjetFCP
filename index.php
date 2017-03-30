@@ -1,6 +1,6 @@
 <?php
 //controleur principal de notre application
-session_start();
+
 include_once('library/PDOFactory.php');
 include_once('models/entities/Site.php');
 include_once('models/entities/Statut.php');
@@ -11,6 +11,7 @@ include_once('models/repositories/ContactRepository.php');
 include_once('models/repositories/CampusRepository.php');
 include_once('models/repositories/FormationRepository.php');
 include_once('models/repositories/UserRepository.php');
+include_once('models/repositories/StatutRepository.php');
 
 //On récupère un objet PDO une fois pour toutes pour dialoguer avec la bdd
 
@@ -20,7 +21,6 @@ $pdo = PDOFactory::getMysqlConnection();
 //$_REQUEST c'est comme $_POST + $_GET
 if(isset($_REQUEST['action'])) {
 	$action = $_REQUEST['action'];
-	echo($action);
 } else {
 	$action = null;
 }
@@ -30,18 +30,22 @@ if(isset($_REQUEST['action'])) {
 switch ($action) {
 
 	case "verifLogin":
-		$userRepo = new ClientRepository();
+		session_start();
+		$userRepo = new UserRepository();
 		$user = $userRepo->getUser($pdo, $_POST['login'], $_POST['pwd']);
 		
 		if($user) {
 			$_SESSION['login'] = $user->getLogin();
 			$_SESSION['nom'] = $user->getNom();
 			$_SESSION['prenom'] = $user->getPrenom();
+
 			//On prépare la vue à afficher avec les données dont elle a besoin
 			$vueAAfficher = "views/accueil.php";
 		} else {
 			$message = "Identifiants invalides !";
-			$vueAAfficher = "views/login.php";
+			$_SESSION = array();
+			session_destroy();
+			$vueAAfficher = "views/accueil.php";
 		}
 		break;
 
@@ -82,17 +86,22 @@ switch ($action) {
 		$visiteur->setEtablissementOrigine($_POST["etabOrig"]);
 		$visiteur->setSourcesInfoImie($_POST["infoIMIE"]);
 		$visiteur->setDisponibilite($_POST["dispo"]);
-		$visiteur->setStatut($_POST["situation"]);
-		$visiteur->setSite($_POST["campus"]);
-		$visiteur->setIdFormation($_POST["choix1"]);
-		$visiteur->setIdFormation1($_POST["choix2"]);
-		$visiteur->setIdFormation2($_POST["choix3"]);
-
-		$message = $visiteur->save($pdo);
+		$visiteur->setIdSite($_POST["campus"]);
+		$visiteur->setIdFormation($_POST["formation1"]);
+		$visiteur->setIdFormation1($_POST["formation2"]);
+		$visiteur->setIdFormation2($_POST["formation3"]);
+		$visiteur->setIdStatut($_POST["situation"]);
+		$visiteur->setDiplomeObtenu($_POST["diplome"]);
+		$visiteur->setEtablissementOrigine($_POST["etabOrig"]);
+		?> <script>alert(<?php echo $message = $visiteur->save($pdo); ?>)</script> <?php
+		
+		
+		echo($message);
+	
 
 		//J'indique ensuite la vue à afficher une fois notre visiteur enregistré
-		$message = $visiteur->save($pdo);
-		$vueAAfficher = "views/index.php?action=";
+		
+		$vueAAfficher = "views/accueil.php";
 
 		break;
 
@@ -151,4 +160,4 @@ switch ($action) {
 }
 
 
-include_once ("layouts/layout.php");
+include_once ("layouts/layout.php");   

@@ -19,9 +19,29 @@
 			<div class="col-md-offset-2 col-md-3">
 				<h1>IMIE Le Mans</h1>
 			</div>
-			<div class="col-md-offset-2 col-md-2">
-				<p>Bonjour Administrateur <?php echo("nom de l'admin") ?></p>
-			</div>
+			<?php
+			if ($user) {
+				?>
+				<div class="col-md-offset-2 col-md-2">
+					<p>Bonjour Administrateur <?php echo($user->getNom()); ?></p>
+				</div>
+			<?php
+			}else{
+				?>
+				<form action="./index.php" method="POST">
+					<label>Login</label>
+					<input type="text" name="login"/>
+					<br>
+					<label>Mot de passe</label>
+					<input type="password" name="pwd"/>
+					<br>
+					<input type="submit" value="Connexion"/>
+					<label><?php if(isset($message)) echo $message ?></label>
+					<input type="hidden" name="action" value="verifLogin"/>
+				</form>
+			<?php
+			}
+			?>	
 		</div>
 		<div class="row">
 			<div class="col-md-offset-4">

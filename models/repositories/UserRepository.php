@@ -29,7 +29,7 @@ class UserRepository
 			$user->setLogin($obj->login);
 			$user->setPassword($obj->password);
 
-			return $user;
+			return $user;mm
 		}
 
 	}
