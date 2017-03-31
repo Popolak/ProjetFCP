@@ -10,7 +10,7 @@ class ContactRepository
 	public function getAll($pdo) {
 
 		//Effectuer la requête en bdd pour récupérer l'ensemble des clients enregistrés en bdd
-		$resultats = $pdo->query('SELECT v.id, v.civilite, v.nom, v.prenom, v.date_naissance, v.telephone_1, v.telephone_2, v.email, v.diplome_obtenu, v.etablissement_origine, v.sources_info_imie, v.disponibilite, st.libelle, f.libelle, f.id_base_externe, s.libelle, s.id_base_externe FROM visiteurs v INNER JOIN statut st ON v.id_statut = st.id INNER JOIN formation f ON v.id_formation = f.id INNER JOIN site s ON v.id_site = s.id');
+		$resultats = $pdo->query('SELECT v.id, v.civilite, v.nom, v.prenom, v.dateNaissance, v.telephone1, v.telephone2, v.email, v.diplomeObtenu, v.etablissementOrigine, v.sourcesInfoImie, v.disponibilite, st.libelle, f.libelle, f.idBaseExterne, s.libelle, s.idBaseExterne FROM visiteur v INNER JOIN statut st ON v.idStatut = st.id INNER JOIN formation f ON v.idFormation = f.id INNER JOIN site s ON v.idSite = s.id');
 
 		$resultats->setFetchMode(PDO::FETCH_OBJ);
 
@@ -55,7 +55,7 @@ class ContactRepository
 	public function getOneById($pdo, $id) {
 
 		//Effectuer la requête en bdd pour récupérer le client correspondant à l'id renseigné
-		$resultat = $pdo->query('SELECT v.id, v.civilite, v.nom, v.prenom, v.date_naissance,, v.telephone_1, v.telephone_2, v.email, v.diplome_obtenu, v.etablissement_origine, v.sources_info_imie, v.disponibilite, st.libelle, f.libelle, f.id_base_externe, s.libelle, s.id_base_externe FROM visiteurs v INNER JOIN statut st ON v.id_statut = st.id INNER JOIN formation f ON v.id_formation = f.id INNER JOIN site s ON v.id_site = s.id WHERE v.id = ' . $id);
+		$resultat = $pdo->query('SELECT v.id, v.civilite, v.nom, v.prenom, v.dateNaissance,, v.telephone1, v.telephone2, v.email, v.diplomeObtenu, v.etablissementOrigine, v.sourcesInfoImie, v.disponibilite, st.libelle, f.libelle, f.idBaseExterne, s.libelle, s.idBaseExterne FROM visiteur v INNER JOIN statut st ON v.idStatut = st.id INNER JOIN formation f ON v.idFormation = f.id INNER JOIN site s ON v.idSite = s.id WHERE v.id = ' . $id);
 
 		$resultat->setFetchMode(PDO::FETCH_OBJ);
 

@@ -19,39 +19,18 @@
 			<div class="col-md-offset-2 col-md-3">
 				<h1>IMIE Le Mans</h1>
 			</div>
-			<?php
-			if ($user) {
-				?>
-				<div class="col-md-offset-2 col-md-2">
-					<p>Bonjour Administrateur <?php echo($user->getNom()); ?></p>
-				</div>
-			<?php
-			}else{
-				?>
+			<div class="col-md-offset-2 col-md-2">			
 				<form action="./index.php" method="POST">
 					<label>Login</label>
 					<input type="text" name="login"/>
 					<br>
 					<label>Mot de passe</label>
-					<input type="password" name="pwd"/>
+					<input type="password" name="motPasse"/>
 					<br>
 					<input type="submit" value="Connexion"/>
 					<label><?php if(isset($message)) echo $message ?></label>
 					<input type="hidden" name="action" value="verifLogin"/>
-				</form>
-			<?php
-			}
-			?>	
-		</div>
-		<div class="row">
-			<div class="col-md-offset-4">
-				<nav>
-					<ul id="PL">
-						<li><a href="">Fiches contact</a></li>
-						<li><a href="">Ypareo</a></li>
-						<li><a href="">Administration du site</a></li>
-					</ul>
-				</nav>
+				</form>	
 			</div>
 		</div>
 	</div>
@@ -65,10 +44,10 @@
 			<div class="slider">
 
 		<ul>
-			<li><img src='./web/images/Bear1.png'></li>
-			<li><img src='./web/images/CatExplain.png'></li>
-			<li><img src='./web/images/ImageFacebook3.png'></li>
-			<li><img src='./web/images/ShockedStatut.png'></li>
+			<li><img src='./web/images/Paysage1.png'></li>
+			<li><img src='./web/images/Paysage2.png'></li>
+			<li><img src='./web/images/Paysage3.png'></li>
+			<li><img src='./web/images/Paysage4.png'></li>
 		</ul>
 
 			</div>
@@ -79,19 +58,14 @@
 		<div class="col-lg-4">
 			<div class="Feech">
 				<p class="Police">QUI SOMMES-NOUS ?</p>
-				<p class="Police2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p class="Police2">Créée en 1994, l’école de la filière numérique est actuellement implantée sur Nantes, Angers, Rennes, Laval, Caen, Paris et Le Mans. Pour intégrer le monde du travail numérique dans les meilleures conditions, IMIE vous propose d’obtenir des diplômes reconnus et de maîtriser les technologies les plus récentes.</p>
 			</div>
 		</div>
 		
 		<a href="index.php?action=formAddContact">
 			<div class="col-lg-4">
 				<div class="Feech2">
-					<p class="Police">Fiche Contact</p>
+					<p class="Police">Candidater</p>
 					<br>
 					<img src="./web/images/FicheContact.png">
 				</div>

@@ -7,7 +7,7 @@ class FormationRepository
 	public function getAll($pdo) {
 
 		//Effectuer la requête en bdd pour récupérer l'ensemble des clients enregistrés en bdd
-		$resultats = $pdo->query('SELECT f.id, f.libelle, f.ID_base_externe FROM formation f');
+		$resultats = $pdo->query('SELECT f.id, f.libelle, f.IdBaseExterne FROM formation f');
 
 		$resultats->setFetchMode(PDO::FETCH_OBJ);
 
@@ -25,7 +25,7 @@ class FormationRepository
 			$formation = new Formation();
 			$formation->setId($obj->id);
 			$formation->setLibelle($obj->libelle);
-			$formation->setidBaseExterne($obj->ID_base_externe);
+			$formation->setIdBaseExterne($obj->IdBaseExterne);
 
 			$listeFormations[] = $formation;
 

@@ -6,12 +6,12 @@
 <link rel="stylesheet" href="./web/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="./web/css/style.css">
 	
-	<title>Projet</title>
+	<title>Page d'accueil de l'IMIE</title>
 	
 </head>
 
 <header>
-<?php if ($user) {?>
+<?php if ($user) { ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
@@ -20,20 +20,17 @@
 			<div class="col-md-offset-2 col-md-3">
 				<h1>IMIE Le Mans</h1>
 			</div>
-			
-			
-				
-				<div class="col-md-offset-2 col-md-2">
-					<p>Bonjour Administrateur <?php echo($user->getNom()); ?></p>
-				</div>
+			<div class="col-md-offset-2 col-md-2">
+				<p>Bonjour Administrateur <?php echo($user->getNomAdmin() . ' ' . $user->getPrenomAdmin()); ?></p>
+				<p> <input type="hidden" name="action" value="deconnexion"/> </p>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-offset-4">
 				<nav>
 					<ul id="PL">
-						<li><a href="">Fiches contact</a></li>
-						<li><a href="">Ypareo</a></li>
-						<li><a href="">Administration du site</a></li>
+						<li><a href="index.php?action=backOffice">Administration du site</a></li>
+						<li><a href="index.php?action=newUser">Enregistrement d'un autre administrateur</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -127,4 +124,8 @@
 
 	<br>
 	<script src="./web/js/app.js"></script>
+	<?php } else {
+		echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+	}
+	?>
 </html>

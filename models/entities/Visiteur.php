@@ -182,19 +182,7 @@ class Visiteur{
         return $this->id;
     }
 
-    public function setIdFormation($idFormation)
-    {
-        $this->idFormation = $idFormation;
-
-        return $this;
-    }
-
-    public function getIdFormation()
-    {
-        return $this->idFormation;
-    }
-
-    public function setIdFormation1($idFormation1 = null)
+    public function setIdFormation1($idFormation1)
     {
         $this->idFormation1 = $idFormation1;
 
@@ -216,6 +204,18 @@ class Visiteur{
     public function getIdFormation2()
     {
         return $this->idFormation2;
+    }
+
+    public function setIdFormation3($idFormation3 = null)
+    {
+        $this->idFormation3 = $idFormation3;
+
+        return $this;
+    }
+
+    public function getIdFormation3()
+    {
+        return $this->idFormation3;
     }
 
     public function setIdSite($idSite)
@@ -242,11 +242,23 @@ class Visiteur{
         return $this->idStatut;
     }
 
+    public function setDateJour($dateJour)
+    {
+        $this->dateJour = $dateJour;
+
+        return $this;
+    }
+
+    public function getDateJour()
+    {
+        return $this->dateJour;
+    }
+
 
 	public function save($pdo){
 		try{
 
-			$stmt = $pdo->prepare('INSERT INTO visiteurs (Civilite, Nom, Prenom, Date_naissance, Telephone_1, Telephone_2, Email, Diplome_obtenu, Etablissement_origine, Sources_Info_IMIE, Disponibilite, ID_Statut, ID_Formation, ID_Site, ID_Formation_1, ID_Formation_2) VALUES (:civ, :nom, :prenom, :dateNaissance, :tel1, :tel2, :mail, :dernDiplome, :etabOrig, :infoIMIE, :dispo, :situation, :formation1, :site, :formation2, :formation3)');
+			$stmt = $pdo->prepare('INSERT INTO visiteur (civilite, nom, prenom, dateNaissance, telephone1, telephone2, email, dernierDiplome, etabOrig, sourceInfo, dispo, id_statut, id_formation, id_site, id_formation_1, id_formation_2, dateJour) VALUES (:civ, :nom, :prenom, :dateNaissance, :tel1, :tel2, :mail, :diplomeObtenu, :etabOrig, :infoIMIE, :dispo, :situation, :formation1, :site, :formation2, :formation3, :dateJour)');
 
 			$stmt->bindParam(':civ', $this->civilite, PDO::PARAM_INT);
 			$stmt->bindParam(':nom', $this->nom, PDO::PARAM_STR);
@@ -255,15 +267,16 @@ class Visiteur{
 			$stmt->bindParam(':tel1', $this->telephone1, PDO::PARAM_INT);
 			$stmt->bindParam(':tel2', $this->telephone2, PDO::PARAM_INT);
 			$stmt->bindParam(':mail', $this->email, PDO::PARAM_STR);
-			$stmt->bindParam(':dernDiplome', $this->diplomeObtenu, PDO::PARAM_STR);
+			$stmt->bindParam(':diplomeObtenu', $this->diplomeObtenu, PDO::PARAM_STR);
 			$stmt->bindParam(':etabOrig', $this->etablissementOrigine, PDO::PARAM_STR);
-			$stmt->bindParam(':infoIMIE', $this->sourcesInfoIMIE, PDO::PARAM_STR);
+			$stmt->bindParam(':infoIMIE', $this->sourceInfo, PDO::PARAM_STR);
 			$stmt->bindParam(':dispo', $this->disponibilite, PDO::PARAM_STR);
 			$stmt->bindParam(':situation', $this->idStatut, PDO::PARAM_INT);
-			$stmt->bindParam(':formation1', $this->idFormation, PDO::PARAM_INT);
+			$stmt->bindParam(':formation1', $this->idFormation1, PDO::PARAM_INT);
 			$stmt->bindParam(':site', $this->idSite, PDO::PARAM_INT);
-			$stmt->bindParam(':formation2', $this->idFormation1, PDO::PARAM_INT);
-			$stmt->bindParam(':formation3', $this->idFormation2, PDO::PARAM_INT);
+			$stmt->bindParam(':formation2', $this->idFormation2, PDO::PARAM_INT);
+            $stmt->bindParam(':formation3', $this->idFormation3, PDO::PARAM_INT);
+			$stmt->bindParam(':dateJour', $this->dateJour, PDO::PARAM_INT);
 
 			$stmt->execute();
 

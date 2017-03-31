@@ -7,7 +7,7 @@ class CampusRepository
 	public function getAll($pdo) {
 
 		//Effectuer la requête en bdd pour récupérer l'ensemble des clients enregistrés en bdd
-		$resultats = $pdo->query('SELECT s.id, s.libelle, s.ID_base_externe FROM site s');
+		$resultats = $pdo->query('SELECT s.id, s.libelle, s.idBaseExterne FROM site s');
 
 		$resultats->setFetchMode(PDO::FETCH_OBJ);
 
@@ -24,14 +24,14 @@ class CampusRepository
 
 			$campus = new Site();
 			$campus->setLibelle($obj->libelle);
-			$campus->setIdBaseExterne($obj->idExterne);
+			$campus->setIdBaseExterne($obj->idBaseExterne);
 			$campus->setId($obj->id);
 
 
 			$formation = new Formation();
 			$formation->setId($obj->id);
 			$formation->setLibelle($obj->libelle);
-			$formation->setIdBaseExterne($obj->idExterne);
+			$formation->setIdBaseExterne($obj->idBaseExterne);
 
 			$listeCampus[] = $campus;
 

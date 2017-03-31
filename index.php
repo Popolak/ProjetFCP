@@ -4,14 +4,13 @@
 include_once('library/PDOFactory.php');
 include_once('models/entities/Site.php');
 include_once('models/entities/Statut.php');
-include_once('models/entities/Users.php');
+include_once('models/entities/User.php');
 include_once('models/entities/Visiteur.php');
 include_once('models/entities/Formation.php');
 include_once('models/repositories/ContactRepository.php');
 include_once('models/repositories/CampusRepository.php');
 include_once('models/repositories/FormationRepository.php');
 include_once('models/repositories/UserRepository.php');
-include_once('models/repositories/StatutRepository.php');
 
 //On récupère un objet PDO une fois pour toutes pour dialoguer avec la bdd
 
@@ -32,15 +31,14 @@ switch ($action) {
 	case "verifLogin":
 		session_start();
 		$userRepo = new UserRepository();
-		$user = $userRepo->getUser($pdo, $_POST['login'], $_POST['pwd']);
+		$user = $userRepo->getUser($pdo, $_POST['login'], $_POST['motPasse']);
 		
 		if($user) {
 			$_SESSION['login'] = $user->getLogin();
-			$_SESSION['nom'] = $user->getNom();
-			$_SESSION['prenom'] = $user->getPrenom();
+			$_SESSION['motPasse'] = $user->getMotPasse();
 
 			//On prépare la vue à afficher avec les données dont elle a besoin
-			$vueAAfficher = "views/accueil.php";
+			$vueAAfficher = "views/accueilAdmin.php";
 		} else {
 			$message = "Identifiants invalides !";
 			$_SESSION = array();
@@ -49,18 +47,12 @@ switch ($action) {
 		}
 		break;
 
-	case "disconnect":
+	case "deconnexion":
 		$_SESSION = array();
 		session_destroy();
-		$vueAAfficher = "views/login.php";
+		$vueAAfficher = "views/accueil.php";
 		break;
 
-	case "listContact":
-		//On prépare la vue a afficher avec les données dont elle a besoin
-		$contactRepo = new ContactRepository();
-		$listeContacts = $contactRepo->getAll($pdo);
-		$vueAAfficher = "views/listContact.php";
-		break;
 
 	//Affiche le formulaire d'ajout d'un client
 	case "formAddContact": 
@@ -80,20 +72,24 @@ switch ($action) {
 		$visiteur->setPrenom($_POST["prenom"]);
 		$visiteur->setDateNaissance($_POST["dateNaissance"]);
 		$visiteur->setTelephone1($_POST["tel1"]);
-		$visiteur->setTelephone2($_POST["tel2"]);
+		if ( is_null($_POST["tel2"])) {
+			$visiteur->setTelephone2("1");
+		} else {
+			$visiteur->setTelephone2($_POST["tel2"]);
+		};
 		$visiteur->setEmail($_POST["mail"]);
-		$visiteur->setDiplomeObtenu($_POST["diplome"]);
-		$visiteur->setEtablissementOrigine($_POST["etabOrig"]);
 		$visiteur->setSourcesInfoImie($_POST["infoIMIE"]);
 		$visiteur->setDisponibilite($_POST["dispo"]);
-		$visiteur->setIdSite($_POST["campus"]);
-		$visiteur->setIdFormation($_POST["formation1"]);
-		$visiteur->setIdFormation1($_POST["formation2"]);
-		$visiteur->setIdFormation2($_POST["formation3"]);
+		$visiteur->setIdSite($_POST["site"]);
+		$visiteur->setIdFormation1($_POST["formation1"]);
+		$visiteur->setIdFormation2($_POST["formation2"]);
+		$visiteur->setIdFormation3($_POST["formation3"]);
 		$visiteur->setIdStatut($_POST["situation"]);
-		$visiteur->setDiplomeObtenu($_POST["diplome"]);
+		$visiteur->setDiplomeObtenu($_POST["dernDiplome"]);
 		$visiteur->setEtablissementOrigine($_POST["etabOrig"]);
-		?> <script>alert(<?php echo $message = $visiteur->save($pdo); ?>)</script> <?php
+		$visiteur->setDateJour($_POST["date"]);
+
+		?> <script>alert(<?php echo ($message); ?>)</script> <?php
 		
 		
 		echo($message);
@@ -151,6 +147,24 @@ switch ($action) {
 		$contactRepo = new ContactRepository();
 		$listeContacts = $contactRepo->getAll($pdo);
 		$vueAAfficher = "views/listContact.php";
+		break;
+
+
+	case "newUser":
+		$userRepo = new UserRepository();
+		$listeUser = $userRepo->getAll($pdo);
+		$vueAAfficher = "views/formAddUser.php";
+		break;
+
+	case "insertUser":
+		$user = new User ();
+		$user->setNomAdmin($_POST["nomAdmin"]);
+		$user->setPrenomAdmin($_POST["prenomAdmin"]);
+		$user->setLogin($_POST["login"]);
+		$user->setMotPasse($_POST["motPasse"]);
+
+		
+		$vueAAfficher = "views/accueil.php";
 		break;
 
 	//Jeu d'instructions appelé lorsque aucune action n'est renseignée dans l'url

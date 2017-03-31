@@ -43,29 +43,29 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="col-sm-offset-1 col-sm-2">
-					<p class="p1"><input type="radio" name="campus" value="1">  LE MANS</p>
+					<p class="p1"><input type="radio" name="site" value="1">  LE MANS</p>
 				</div>
 				<div class="col-sm-offset-1 col-sm-2">
-					<p class="p1"><input type="radio" name="campus" value="2">  RENNES</p>
+					<p class="p1"><input type="radio" name="site" value="2">  RENNES</p>
 				</div>
 				<div class="col-sm-offset-1 col-sm-2">
-					<p class="p1"><input type="radio" name="campus" value="3">  PARIS</p>
+					<p class="p1"><input type="radio" name="site" value="3">  PARIS</p>
 				</div>
 				<div class="col-sm-offset-1 col-sm-2">
-					<p class="p1"><input type="radio" name="campus" value="4">  LAVAL</p>
+					<p class="p1"><input type="radio" name="site" value="4">  LAVAL</p>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="col-sm-offset-2 col-sm-3">
-					<p class="p2"><input type="radio" name="campus" value="5">  ANGERS</p>
+					<p class="p2"><input type="radio" name="site" value="5">  ANGERS</p>
 				</div>
 				<div class="col-sm-3">
-					<p class="p2"><input type="radio" name="campus" value="6">  CAEN</p>
+					<p class="p2"><input type="radio" name="site" value="6">  CAEN</p>
 				</div>
 				<div class=" col-sm-2">
-					<p class="p2"><input type="radio" name="campus" value="7">  NANTES</p>
+					<p class="p2"><input type="radio" name="site" value="7">  NANTES</p>
 				</div>
 			</div>
 		</div>
@@ -134,7 +134,7 @@
 							<p>Téléphone 2</p>
 						</div>
 						<div class="col-sm-6">
-							<input type="text" class="tel" placeholder="ex: 06 12 34 56 78..." name="tel2" value="0">
+							<input type="text" class="tel" placeholder="ex: 06 12 34 56 78..." name="tel2" value="">
 						</div>
 					</div>
 				</div>
@@ -151,70 +151,53 @@
 			</div>
 		</div>
 	</div>
-	<h3>#SITUATIONS</h3>
-	<h4> Quelle est votre situation en ce moment ? *</h4>
+	<h3>#REORIENTATION</h3>
+	<h4>Vous réorientez-vous ? *</h4>
 	<div class="row">
-		<div class="col-sm-12 sit">
-			<div class=" col-sm-3">
-				<input type="radio" class="déroule2" value="3" name="situation">  EN FORMATION
+		<div class="col-sm-12">
+			<div class="col-sm-offset-3 col-sm-2">
+				<input type="radio" name="situation" value="1" checked > Oui
 			</div>
-			<div class="col-sm-offset-2 col-sm-2">
-				<input id="salarié" type="radio" name="situation" value="1" checked class="deroule3">  SALARIE
-			</div>
-			<div class="col-sm-offset-2 col-sm-3">
-				<input id="emploi" type="radio" name="situation" value="2" class="deroule3">  DEMANDEUR D'EMPLOI
+			<div class="col-sm-offset-3 col-sm-2">
+				<input type="radio" name="situation" value="2" > Non
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<div class="col-sm-6 text2">
+			<div class="col-sm-6">
 				<div class="row">
-					<div class="col-sm-12 form">
+					<div class="col-sm-12">
+					<br>
 						<div class="col-sm-6">
-							<p>Si formation en cours, laquelle:</p>
+							<p>Quel est le dernier établissement où vous vous êtes formé ? *</p>
 						</div>
 						<div class="col-sm-6">
-							<input type="text" name="">
+							<input type="text" name="etabOrig">
 						</div>
 					</div>
 				</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="col-sm-6">
-								<p>Dans quel établissement: *</p>
-							</div>
-							<div class="col-sm-6">
-								<input type="text" name="etabOrig">
-							</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<p>Dernier diplôme obtenu: *</p>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="col-sm-6">
-								<p>Dernier diplôme obtenu: *</p>
-							</div>
-							<div class="col-sm-6">
-								<input type="text" name="diplome">
-							</div>
+						<div class="col-sm-6">
+							<input type="text" name="dernDiplome">
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-offset-2  col-sm-4 dispo">
+				<div class="col-sm-offset-2  col-sm-10 dispo">
 					<div class="row">
-						<div class="col-sm-12">
-							<div class="col-sm-6 dispo1">
+						<div class="col-sm-2">
+							<div class="dispo1">
 								<label>Disponibilité *</label>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-5">
 							<p><input id="box1" type="radio" name="dispo" value="immediate" onclick="cacherAutre();" checked="">  Immédiate</p>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-5">
 							<p><input id="box1" type="radio" name="dispo" value="apresFormationActuelle" onclick="cacherAutre();">  Après l'activité actuelle</p>
 						</div>
 					</div>
